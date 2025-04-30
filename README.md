@@ -8,5 +8,6 @@ En este repositorio vas a encontrar ejercicios que hice utilizando el ESP32.
 
 2. Semaforo.
 
-	En este ejercicio utilize el ESP32 para poder armar un semaforo donde en la primer parte de este consistia en probarlo para cumplir un cierto patron (Rojo, Amarillo y Verde) que permitia disimular el funcionamiento de este.
-	En la segunda parte de este, utilize dos semaforos para hacer un secuencia en donde uno debia hacer la señal inversa a la otra. Mas info del funcionamiento en la carpeta Semaforo.
+	En este proyecto utilicé un ESP32 para implementar un sistema de semáforo. En la primera etapa, el objetivo fue desarrollar una secuencia básica de luces —roja, amarilla y verde— con el fin de simular el comportamiento típico de un semáforo. Esta fase sirvió como prueba inicial del funcionamiento general.
+
+En la segunda parte, expandí la lógica incorporando dos semáforos que trabajaban en sincronía inversa: mientras uno mostraba luz roja, el otro encendía la verde, y así sucesivamente.  Para más detalles del circuito y funcionamiento, se puede consultar la carpeta "SEMAFORO".
