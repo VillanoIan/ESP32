@@ -1,4 +1,4 @@
-#SEMAFORO
+# SEMAFORO
 
 En este readme vas a ver la como funciona el conexionado del semaforo.
 
