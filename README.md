@@ -1,5 +1,7 @@
 # ESP32
 En este repositorio vas a encontrar ejercicios que hice utilizando el ESP32. 
+![image](https://github.com/user-attachments/assets/47ddf183-fc24-4347-a422-6c28a22a3463)
+
 
 23/4/25
 1. Ejercicio test de cores
