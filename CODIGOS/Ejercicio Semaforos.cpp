@@ -1,4 +1,4 @@
-#define rojo 26
+#define rojo 26//defino en que salida va del ESP32
 #define amarillo 27
 #define verde 33
 #define rojo2 18
@@ -7,15 +7,15 @@
 
 SemaphoreHandle_t mySemaphore;  // declaracion de la varaible que vamos a usar como semaforo
 
-void setup() {
+void setup() {//indico en que salida va cada color
   pinMode(rojo, OUTPUT);
   pinMode(amarillo, OUTPUT);
   pinMode(verde, OUTPUT);
   pinMode(rojo2, OUTPUT);
   pinMode(amarillo2, OUTPUT);
   pinMode(verde2, OUTPUT);
-  Serial.begin(115200);
-    mySemaphore = xSemaphoreCreateMutex(); 
+  Serial.begin(115200);//Printear en la terminal la salida
+    mySemaphore = xSemaphoreCreateMutex(); // En este caso queremos que sea un mutex.
 
   xTaskCreatePinnedToCore(
     semaforo1,     // Referencia a la funcion que vamos a ejecutar
@@ -39,8 +39,9 @@ void setup() {
  // En este caso queremos que sea un mutex.
 }
 
-void semaforo1(void *parameter) {
-  for (;;) {
+void semaforo1(void *parameter) {//Llamamos la funcion semaforo.
+  for (;;) {/*Creamos un for infinito para indicar la tarea del semaforo que consta de usar una bandera donde esta se sincroniza
+    con el patron de forma inversa al primer semaforo*/
     if (xSemaphoreTake(mySemaphore, portMAX_DELAY) == pdTRUE) {
 
 
@@ -62,11 +63,11 @@ void semaforo1(void *parameter) {
       digitalWrite(verde, LOW);
       delay(1000);
     }
-    xSemaphoreGive(mySemaphore);
+    xSemaphoreGive(mySemaphore);//Liberamos semaforos
   }
 }
 
-void semaforo2(void *parameter) {
+void semaforo2(void *parameter) {//Lo mismo pero inverso
   for (;;) {
     if (xSemaphoreTake(mySemaphore, portMAX_DELAY) == pdTRUE) {
 
@@ -88,7 +89,7 @@ void semaforo2(void *parameter) {
       digitalWrite(verde2, LOW);
       delay(4000);
     }
-    xSemaphoreGive(mySemaphore);
+    xSemaphoreGive(mySemaphore);//Libera el semaforo
   }
 }
 
