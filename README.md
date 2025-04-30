@@ -1,15 +1,14 @@
 # ESP32
 En este repositorio vas a encontrar ejercicios que hice utilizando el ESP32. 
 ![image](https://github.com/user-attachments/assets/47ddf183-fc24-4347-a422-6c28a22a3463)
-
-
 23/4/25
-1. Ejercicio test de cores
-	
-	En este ejercicio utilize el ESP32 para poder comprobar el funcionamiento de los nucleos. Mas info en el codigo hecho en la carpeta CODIGOS
 
-2. Semaforo.
+Ejercicio test de cores
 
-	En este proyecto utilicé un ESP32 para implementar un sistema de semáforo. En la primera etapa, el objetivo fue desarrollar una secuencia básica de luces —roja, amarilla y verde— con el fin de simular el comportamiento típico de un semáforo. Esta fase sirvió como prueba inicial del funcionamiento general.
+En este ejercicio utilicé el ESP32 para poder comprobar el funcionamiento de los núcleos. Más info en el código hecho en la carpeta CODIGOS.
 
-	En la segunda parte, expandí la lógica incorporando dos semáforos que trabajaban en sincronía inversa: mientras uno mostraba luz roja, el otro encendía la verde, y así sucesivamente.  Para más detalles del circuito y funcionamiento, se puede consultar la carpeta "SEMAFORO".
+Semáforo
+
+En este proyecto utilicé un ESP32 para implementar un sistema de semáforo. En la primera etapa, el objetivo fue desarrollar una secuencia básica de luces —roja, amarilla y verde— con el fin de simular el comportamiento típico de un semáforo. Esta fase sirvió como prueba inicial del funcionamiento general.
+
+En la segunda parte, expandí la lógica incorporando dos semáforos que trabajaban en sincronía inversa: mientras uno mostraba luz roja, el otro encendía la verde, y así sucesivamente. Para más detalles del circuito y funcionamiento, se puede consultar la carpeta SEMAFORO.
