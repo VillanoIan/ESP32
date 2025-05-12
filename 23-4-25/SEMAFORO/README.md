@@ -1,30 +1,6 @@
-# SEMÁFORO UTILIZANDO COLAS
+# SEMAFORO
+Este sistema controla dos semáforos usando un ESP32, donde ambos semáforos funcionan de manera sincronizada, pero en sincronización inversa. Esto significa que cuando un semáforo está en verde, el otro está en rojo, y viceversa.
 
-En este documento vas a encontrar cómo es el conexionado del semáforo y una explicación de su funcionamiento.
+El control de estos semáforos se logra utilizando un mecanismo de semáforo (en este caso un mutex), que actúa como una "llave" para asegurarse de que solo una tarea pueda modificar el estado de los semáforos a la vez. Cuando una tarea está cambiando las luces de un semáforo, la otra tarea tiene que esperar hasta que termine. Esto previene que ambos semáforos cambien sus luces al mismo tiempo y asegura que siempre haya una secuencia ordenada de luces.
 
-CONEXIÓN:
-Utilizamos un protoboard donde debe ir conectado el ESP32 junto con los tres LEDs que representan el semáforo, de la siguiente manera:
-
-- LED rojo → Pin GPIO 26
-- LED amarillo → Pin GPIO 25
-- LED verde → Pin GPIO 33
-
-CONFIGURACIÓN:
-1. Abrir el Arduino IDE.
-2. Seleccionar la placa: ESP32 Dev Module.
-3. Cargar el código al ESP32.
-4. Verificar que esté todo correctamente conectado antes de ejecutar.
-
-FUNCIONAMIENTO:
-El semáforo enciende y apaga sus luces según una secuencia definida en el código, que utiliza una estructura llamada "colas" provista por FreeRTOS (el sistema operativo en tiempo real del ESP32).
-
-El programa se divide en dos tareas principales:
-
-- Productor:
-  Genera comandos aleatorios (LED rojo, verde, amarillo o parpadeo de todos) y los envía a la cola.
-
-- Consumidor:
-  Recibe esos comandos desde la cola y los ejecuta, encendiendo el LED correspondiente.
-
-Cuando el comando es LED_BLINK (parpadeo), se le da prioridad y se coloca al inicio de la cola, de modo que se ejecute antes que otros comandos ya en espera.
-
+En resumen, los semáforos se manejan en sincronización inversa, controlando las luces de ambos semáforos de manera coordinada y evitando conflictos, lo cual es posible gracias al uso del semáforo (mutex) que regula el acceso a la modificación de los estados de las luces.
