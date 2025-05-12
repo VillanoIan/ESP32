@@ -31,3 +31,5 @@ El programa se divide en dos tareas principales:
   Recibe esos comandos desde la cola y los ejecuta, encendiendo el LED correspondiente.
 
 Cuando el comando es LED_BLINK (parpadeo), se le da prioridad y se coloca al inicio de la cola, de modo que se ejecute antes que otros comandos ya en espera.
+
+Para saber cada funcion del codigo, puedes encontrarlo en la carpeta "CODIGOS" con comentarios explicando ciertas funciones
