@@ -1,0 +1,17 @@
+#include "data.h"// En esta librería se definen los comandos que pueden ejecutar los LEDs (colores y modos)
+LedCommand ledCommands[50] = {
+    LED_GREEN, LED_RED, LED_BLINK, LED_YELLOW, LED_GREEN,
+    LED_RED, LED_BLINK, LED_GREEN, LED_YELLOW, LED_RED,
+    LED_BLINK, LED_GREEN, LED_YELLOW, LED_RED, LED_GREEN,
+    LED_BLINK, LED_YELLOW, LED_RED, LED_GREEN, LED_BLINK,
+    LED_YELLOW, LED_RED, LED_GREEN, LED_BLINK, LED_YELLOW,
+    LED_RED, LED_GREEN, LED_BLINK, LED_YELLOW, LED_RED,
+    LED_GREEN, LED_BLINK, LED_YELLOW, LED_RED, LED_GREEN,
+    LED_BLINK, LED_YELLOW, LED_RED, LED_GREEN, LED_BLINK,
+    LED_YELLOW, LED_RED, LED_GREEN, LED_BLINK, LED_YELLOW,
+    LED_RED, LED_GREEN, LED_BLINK, LED_YELLOW, LED_RED};
+
+LedCommand randomCommand()
+{
+    return ledCommands[random(0, 50)];
+}
