@@ -1,6 +1,22 @@
-# SEMAFORO
-Este sistema controla dos semáforos usando un ESP32, donde ambos semáforos funcionan de manera sincronizada, pero en sincronización inversa. Esto significa que cuando un semáforo está en verde, el otro está en rojo, y viceversa.
+Este proyecto utiliza el ESP32 para controlar dos semáforos, implementando el concepto de sincronización de tareas mediante un mutex (semaforo). Los semáforos se controlan de forma inversa, es decir, cuando un semáforo está en verde, el otro está en rojo, y viceversa.
 
-El control de estos semáforos se logra utilizando un mecanismo de semáforo (en este caso un mutex), que actúa como una "llave" para asegurarse de que solo una tarea pueda modificar el estado de los semáforos a la vez. Cuando una tarea está cambiando las luces de un semáforo, la otra tarea tiene que esperar hasta que termine. Esto previene que ambos semáforos cambien sus luces al mismo tiempo y asegura que siempre haya una secuencia ordenada de luces.
+Funcionamiento básico:
+Conexiónado:
 
-En resumen, los semáforos se manejan en sincronización inversa, controlando las luces de ambos semáforos de manera coordinada y evitando conflictos, lo cual es posible gracias al uso del semáforo (mutex) que regula el acceso a la modificación de los estados de las luces.
+Los LEDs de los semáforos se conectan a los pines del ESP32 de acuerdo con la configuración indicada:
+
+Semáforo 1: Rojo (pin 26), Amarillo (pin 27), Verde (pin 33)
+
+Semáforo 2: Rojo (pin 18), Amarillo (pin 19), Verde (pin 21)
+
+Mutex (Semáforo):
+Se crea un mutex para garantizar que solo una tarea acceda a los semáforos a la vez. Esto sincroniza las operaciones, de manera que cuando un semáforo cambia de estado (por ejemplo, de verde a amarillo), el otro semáforo no puede hacerlo hasta que la tarea que lo controla haya liberado el mutex.
+
+Sincronización inversa:
+El funcionamiento de los semáforos es inverso: cuando el primer semáforo está en rojo, el segundo está en verde; cuando el primer semáforo está en verde, el segundo está en rojo. Esto se logra mediante la sincronización de tareas usando el mutex.
+
+Tareas del semáforo:
+
+Semáforo 1: Cambia de estado entre rojo, verde y amarillo en un ciclo de tiempo determinado (rojo por 4 segundos, verde por 3 segundos y amarillo por 1 segundo).
+
+Semáforo 2: Sigue el mismo ciclo pero en sentido inverso: el verde del Semáforo 1 es el rojo del Semáforo 2, y viceversa.
