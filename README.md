@@ -16,7 +16,7 @@ En la segunda parte, expandí la lógica incorporando dos semáforos que trabaja
 ___________________________________________________________________________________________________________________________________________________________________________________________________________
 7/5/25
 
-Ejercio utilizando colas
+Ejercicio utilizando colas
 
 En este ejercicio, utilicé el ESP32 con el propósito de comprender el funcionamiento y la implementación de las colas en sistemas embebidos. Más información sobre este proyecto se encuentra en la carpeta "7-5-25".
 
