@@ -1,5 +1,4 @@
-# SEMÁFORO UTILIZANDO COLAS
-
+# SEMÁFORO UTILIZANDO COLAS🚦 
 En este documento vas a encontrar cómo es el conexionado del semáforo y una explicación de su funcionamiento.
 
 CONEXIÓN:
@@ -20,7 +19,7 @@ CONFIGURACIÓN:
 FUNCIONAMIENTO:
 El semáforo enciende y apaga sus luces según una secuencia definida en el código, que utiliza una estructura llamada "colas" provista por FreeRTOS (el sistema operativo en tiempo real del ESP32).
 
-El codigo se puede encontrar en la carpetas "CODIGOS" del repositorio ESP32.
+El codigo se puede encontrar en la carpetas "CÓDIGO" del repositorio ESP32.
 
 El programa se divide en dos tareas principales:
 

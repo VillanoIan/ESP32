@@ -24,4 +24,13 @@ Semaforo utilizando colas
 
 En este trabajo, utilicé el ESP32 para aplicar el concepto de colas en un sistema de semáforo. El objetivo principal fue demostrar cómo las colas pueden ser empleadas para gestionar la ejecución de tareas de forma ordenada y eficiente en un semáforo, permitiendo que se controlen los cambios de luces según un flujo específico de comandos. A través de este enfoque, se pudo observar cómo las colas ayudan a manejar múltiples procesos en paralelo, como el encendido y apagado de las luces del semáforo de acuerdo con los comandos recibidos, priorizando algunas tareas según la necesidad. 
 
-Mas detalle en la carpeta "7-5-25"
+Mas detalle en la carpeta "7-5-25".
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________
+14/5/25
+
+Ejercicio Aereopuerto
+
+En este ejercico se trabajo en una idea con el ESP32, que trata de hacer un simulacion de un aereopuerto, habiendo una parte donde seran las tareas del avion y la otra parte sera la torre control del mismo.
+
+Mas detalle en la carpeta "14-5-25".

@@ -1,3 +1,4 @@
+# SEMÁFORO🚦
 Este proyecto utiliza el ESP32 para controlar dos semáforos, implementando el concepto de sincronización de tareas mediante un mutex (semaforo). Los semáforos se controlan de forma inversa, es decir, cuando un semáforo está en verde, el otro está en rojo, y viceversa.
 
 Funcionamiento básico:
