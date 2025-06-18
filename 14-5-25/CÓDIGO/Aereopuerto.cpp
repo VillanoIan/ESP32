@@ -51,7 +51,7 @@ void Tarea_de_aviones(void *parameter) {//Su funcion es enviar a la torre las so
 
     //Envia la solicitud
     Serial.printf("Avión %d solicita aterrizaje\n", miID);
-    delay(500);
+    
     xQueueSend(colaSolicitudes, &miID, portMAX_DELAY);
 
     //Recibe la autorizacion 
@@ -65,32 +65,24 @@ void Tarea_de_aviones(void *parameter) {//Su funcion es enviar a la torre las so
       //Busca si hay pista disponible
       if (xSemaphoreTake(Pista1, 0) == pdTRUE) {
         Serial.printf("Avión %d aterrizando en Pista 1\n", miID);
-        delay(500);
         vTaskDelay(random(2000, 4000) / portTICK_PERIOD_MS);
         xSemaphoreGive(Pista1);
         Serial.printf("Avión %d liberó Pista 1\n", miID);
-        delay(500);
       } else if (xSemaphoreTake(Pista2, 0) == pdTRUE) {
         Serial.printf("Avión %d aterrizando en Pista 2\n", miID);
-        delay(500);
         vTaskDelay(random(2000, 4000) / portTICK_PERIOD_MS);
         xSemaphoreGive(Pista2);
         Serial.printf("Avión %d liberó Pista 2\n", miID);
-        delay(500);
-
       } else if (xSemaphoreTake(Pista3, 0) == pdTRUE) {
-        Serial.printf("Avión %d aterrizando en Pista 3\n", miID);
-        delay(500);
+        Serial.printf("Avión %d aterrizando en Pista 3\n", miID);   
         vTaskDelay(random(2000, 4000) / portTICK_PERIOD_MS);
         xSemaphoreGive(Pista3);
         Serial.printf("Avión %d liberó Pista 3\n", miID);
-        delay(500);
-
-      } else {
-        // Si no encuentra pista
-        Serial.printf("Avión %d autorizado pero no encontró pista libre\n", miID);
-        
-      }
+      } 
+      // Si no encuentra pista
+      else {
+        Serial.printf("No hay pista disponibile para el avión %d\n", miID);
+       }
     }
   }
 }
@@ -98,13 +90,17 @@ void Tarea_de_aviones(void *parameter) {//Su funcion es enviar a la torre las so
 void Torre_de_Control(void *parameter) {//Funcion donde la funcion anterior "Tarea de aviones", se hace print para la aprobacion por la torre de control
   for (;;) {
     int idAvion;
+    //Recibe la solicitud del aterrizaje
     if (xQueueReceive(colaSolicitudes, &idAvion, portMAX_DELAY) == pdTRUE) {
       Serial.printf("Torre recibió solicitud del avión %d\n", idAvion);
-      delay(500);
-      vTaskDelay(500 / portTICK_PERIOD_MS);//delay de simulando un procesamiento
+      
+      //delay de simulando un procesamiento
+      vTaskDelay(500 / portTICK_PERIOD_MS);
+
+      //Envia las autorizaciones
       xQueueSend(colaAutorizaciones, &idAvion, portMAX_DELAY);
       Serial.printf("Torre autorizó al avión %d\n", idAvion);
-      delay(500);
+      
     }
   }
 }
